@@ -7,22 +7,23 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+
 @st.cache
 def get_data(path):
     tips = pd.read_csv(path)
     return tips
 
 
-st.markdown(
-    """
-    <style>
-    .main{
-        background-color: aliceblue;
-        }
-    <style>
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#     <style>
+#     .main{
+#         background-color: aliceblue;
+#         }
+#     <style>
+#     """,
+#     unsafe_allow_html=True
+# )
 
 st.title("""
 Визуализация данных по TIPS

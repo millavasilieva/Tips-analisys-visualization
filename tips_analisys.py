@@ -14,16 +14,16 @@ def get_data(path):
     return tips
 
 
-# st.markdown(
-#     """
-#     <style>
-#     .main{
-#         background-color: aliceblue;
-#         }
-#     <style>
-#     """,
-#     unsafe_allow_html=True
-# )
+st.markdown(
+    """
+    <style>
+    .main{
+        background-color: aliceblue;
+        }
+    <style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("""
 Визуализация данных по TIPS
@@ -52,7 +52,8 @@ fig = go.Figure(data=go.Table(
     cells=dict(values=[ tips.total_bill,tips.tip, tips.sex, tips.smoker, tips.day, tips.time,tips['size']],
         fill_color= 'floralwhite',
         align = 'left')))
-fig.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+fig.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
 
 st.write(fig)
 
@@ -70,7 +71,8 @@ if option == 'По общему счету':
     fig1.update_traces(marker_color='slateblue', 
                         selector=dict(type='histogram'))
 
-    fig1.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig1.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig1)
 
 
@@ -78,7 +80,8 @@ if option == 'По общему счету':
     st.header('Корреляция между общим счетом и суммой чаевых')
     fig2= px.scatter(tips,x='tip',y= 'total_bill',
     size='tip', hover_name='total_bill')
-    fig2.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig2.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig2)
 
 
@@ -93,14 +96,16 @@ if option == 'По размеру группы посетителей':
 if option == "По дню недели и времени":
     st.header("Корреляция между днем недели и размером счета")
     fig3 = px.box(tips, x='day', y='total_bill',color='day')
-    fig3.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig3.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig3)
 
 
 
     st.header("Сравнение общего счета с количеством посетителей по дням недели и времени суток")
     fig5 = px.box(tips, x='total_bill', y='day',color='time')
-    fig5.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig5.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig5)
 
 
@@ -121,7 +126,8 @@ if option == "По дню недели и времени":
                 row=1, col=2)
 
     fig6.update_layout(margin=dict(l=30,r=30,b=30,t=30),
-    showlegend=False)
+    showlegend=False,
+    paper_bgcolor = background_color)
     st.write(fig6)
 
 
@@ -130,7 +136,8 @@ if option == "По дню недели и времени":
 if option == 'По полу человека':
     st.header("Сравнение количества мужчин и женщин по дням недели")
     fig4 = px.scatter(tips, x='tip', y='day',color='sex')
-    fig4.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig4.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig4)
 
 
@@ -152,10 +159,12 @@ if option == 'По полу человека':
     # st.header("Сравнение количества мужчин и женщин по дням недели")
     st.write('Мужчины')
     fig7 = px.scatter(male, x='tip', y='total_bill',color='smoker')
-    fig7.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig7.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig7)
 
     st.write('Женщины')
     fig8 = px.scatter(female, x='tip', y='total_bill',color='smoker')
-    fig8.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig8.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig8)

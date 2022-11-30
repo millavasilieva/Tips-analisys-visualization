@@ -102,7 +102,7 @@ st.write(fig4)
 
 
 
-st.header("Сравнение количества посетителей по дням недели и времени суток")
+st.header("Сравнение общего счета с количеством посетителей по дням недели и времени суток")
 fig5 = px.box(tips, x='total_bill', y='day',color='time')
 fig5.update_layout(margin=dict(l=5,r=5,b=10,t=10),
 paper_bgcolor=background_color)

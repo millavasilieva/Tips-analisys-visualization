@@ -89,7 +89,8 @@ if option == 'По размеру группы посетителей':
     st.header('Корреляция между общим счетом, суммой чаевых и размером группы посетителей')
     fig2= px.scatter(tips,x='tip',y= 'total_bill',
         size='tip', color='size', hover_name='total_bill')
-    fig2.update_layout(margin=dict(l=5,r=5,b=10,t=10))
+    fig2.update_layout(margin=dict(l=5,r=5,b=10,t=10),
+    paper_bgcolor = background_color)
     st.write(fig2)
 
 

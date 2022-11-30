@@ -93,7 +93,7 @@ if option == 'По размеру группы посетителей':
     st.write(fig2)
 
 
-if option == "По дню недели":
+if option == "По дню недели и времени":
     st.header("Корреляция между днем недели и размером счета")
     fig3 = px.box(tips, x='day', y='total_bill',color='day')
     fig3.update_layout(margin=dict(l=5,r=5,b=10,t=10),
